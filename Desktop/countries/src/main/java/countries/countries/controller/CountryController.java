@@ -5,6 +5,8 @@ import countries.countries.model.Player;
 import countries.countries.model.Score;
 import countries.countries.service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -20,17 +22,18 @@ public class CountryController {
     private CountryService countryService;
 
     @PostMapping("/start")
-    public Country getRandomCountry(@RequestBody Map<String, String> payload) {
+    public ResponseEntity<?> getRandomCountry(@RequestBody Map<String, String> payload) {
         String username = payload.get("username");
         Optional<Player> playerOptional = countryService.getPlayerByUsername(username);
         if (playerOptional.isEmpty()) {
             countryService.createPlayer(username);
         }
-        return countryService.getRandomCountry();
+        Country country = countryService.getRandomCountry();
+        return ResponseEntity.ok(country);
     }
 
     @PostMapping("/{id}")
-    public Map<String, String> guessCapital(@PathVariable Long id, @RequestBody Map<String, String> payload) {
+    public ResponseEntity<?> guessCapital(@PathVariable Long id, @RequestBody Map<String, String> payload) {
         String guessedCapital = payload.get("capital");
         String username = payload.get("username");
         Map<String, String> response = new HashMap<>();
@@ -40,26 +43,29 @@ public class CountryController {
             Country country = countryOptional.get();
             Player player = playerOptional.get();
             if (country.getCapital().equalsIgnoreCase(guessedCapital)) {
-                response.put("result", "Correct! You guessed the right capital.");
+                response.put("result", "C'est exact ! Vous avez deviné la bonne capital");
                 countryService.saveScore(player, true);
+                return ResponseEntity.ok(response);
             } else {
-                response.put("result", "Wrong! The correct capital is " + country.getCapital());
+                response.put("result", "Faux ! La capital correcte est " + country.getCapital());
                 countryService.saveScore(player, false);
+                return ResponseEntity.ok(response);
             }
         } else {
-            response.put("result", "Country or player not found.");
+            response.put("result", "Pays ou joueur introuvable.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
-        return response;
     }
 
     @GetMapping("/score/{username}")
-    public List<Score> getPlayerScores(@PathVariable String username) {
+    public ResponseEntity<?> getPlayerScores(@PathVariable String username) {
         Optional<Player> playerOptional = countryService.getPlayerByUsername(username);
         if (playerOptional.isPresent()) {
             Player player = playerOptional.get();
-            return countryService.getScoresByPlayerId(player.getId());
+            List<Score> scores = countryService.getScoresByPlayerId(player.getId());
+            return ResponseEntity.ok(scores);
         } else {
-            return null;
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Joueur introuvable.");
         }
     }
 }
