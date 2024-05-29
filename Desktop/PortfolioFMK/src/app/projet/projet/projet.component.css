@@ -1,0 +1,91 @@
+div.container {
+    max-width: 650px; /* Ajustez la largeur maximale selon vos besoins */
+    margin: auto; /* Centrez le carrousel horizontalement */
+}
+
+div.carousel-inner img {
+    max-height: 400px; /* Ajustez la hauteur maximale selon vos besoins */
+    width: auto; /* Ajustez la largeur automatiquement pour maintenir le ratio d'aspect */
+}
+
+
+
+.card:hover {
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; */
+    background-color: white;
+    border-radius: 0px;
+}
+
+.cal{
+    border-radius: 0;
+}
+
+
+.tel{
+   margin-bottom: 190px;
+   margin-right: 20px;
+   background-color: blueviolet;
+
+}
+
+/* Définissez les animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px); /* Commencez légèrement décalé vers le bas */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Décalage à la position normale */
+    }
+}
+
+/* Appliquez les animations aux éléments spécifiques */
+.t1, .t2, .t3 {
+    opacity: 0; /* Assurez-vous que les éléments sont initialement invisibles */
+    animation: fadeInUp 0.5s ease forwards; /* Appliquez l'animation de fondu en montant */
+}
+
+.t1{
+    padding-left: 200px;
+    animation-delay: 0.3s; /* Délai pour la première image */
+}
+
+.t2{
+    padding-left: 100px;
+    animation-delay: 0.6s; /* Délai pour la deuxième image */
+
+}
+.t4{
+    padding-left: 200px;
+    animation-delay: 0.9s; /* Délai pour la troisième image */
+
+
+}
+
+
+.mod{
+    /* margin-bottom: 350px; */
+    padding-bottom:120px ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,234 @@
+<header>
+  <section class="navigation mb-5">
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="/accueil">
+              <img src="../assets/logo3.png" alt="Logo" class="img-fluid display-inherite" width="40" height="20">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse me-5" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav nav-pills">
+                <li class="nav-item">
+                  <a class="nav-link librefrank" aria-current="page"
+                    routerLink="/accueil" routerLinkActive="active">Accueil</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link librefrank" routerLink="/projet" routerLinkActive="active">Projet</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link librefrank" routerLink="/apropos" routerLinkActive="active">A propos</a>
+                </li>
+                <li class="nav-item">
+                 <a class="nav-link librefrank" routerLink="/contact" routerLinkActive="active">Voir CV</a>
+
+                 
+                  <!-- <a href="../../../assets/CV Kevin Fonkou .pdf" download="CV Fonkou Kevin"
+                                        class="btn" style="background-color: rgb(92, 90, 90); color: white;">Download
+                                        CV</a> -->
+                </li>
+
+              </ul>
+
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </section>
+</header>
+
+<router-outlet></router-outlet>
+
+
+
+<!-- <img src="../assets/logo1.png" alt="Logo" class="img-fluid display-inherite"  width="140" height="70"> -->
+
+
+
+
+
+
+
+
+<!-- <div [formGroup]="form" class="formbold-main-wrapper" style="display: flex; flex-direction: column; gap: 50px;">
+
+  <h1 style="color: black;">contact us</h1>
+
+
+  <div class="formbold-form-wrapper">
+
+    <form action="javascript:void(0);" (submit)="send()" method="POST">
+      <div class="formbold-mb-5">
+        <label for="name" class="formbold-form-label"> Full Name</label>
+
+        <input formControlName="from_name" type="text" name="name" id="name" placeholder="Full Name"
+          class="formbold-form-input">
+
+
+
+      </div>
+
+      <div class="formbold-mb-5">
+        <label for="email" class="formbold-form-label"> Email Address</label>
+
+        <input formControlName="from_email" type="email" name="email" id="email" placeholder="Enter your email"
+          class="formbold-form-input">
+
+      </div>
+
+      <div class="formbold-mb-5">
+        <label for="subject" class="formbold-form-label"> Subject</label>
+
+        <input formControlName="subject" type="text" name="subject" id="subject" placeholder="Enter your subject"
+          class="formbold-form-input">
+
+      </div>
+
+
+      <div class="formbold-mb-5">
+        <label for="message" class="formbold-form-label"> Message</label>
+
+        <textarea formControlName="message" name="message" id="message" cols="30" rows="10"
+          placeholder="Type your message" class="formbold-form-input"></textarea>
+
+      </div>
+      {{form.value | json}}
+
+      <div>
+        <button type="submit" class="formbold-btn">submit</button>
+      </div>
+    </form>
+
+  </div>
+
+</div> -->
+
+
+
+<section>
+  <div class="container py-4">
+    <h4 class="titre rob">Contact</h4>
+  </div>
+
+</section>
+
+<div [formGroup]="form" class="formbold-main-wrapper" style="display: flex; flex-direction: column; gap: 50px;">
+  <section>
+    <div class="card mb-3 border-0">
+      <div class="row g-0">
+        <div class="col-md-5 voir">
+          <div class="card-body">
+            <h2 class="card-title rob">Contact ME</h2>
+            <p class="card-text"><i class="fa-solid fa-paper-plane" style="color: #ff523b;"></i>
+              kevinfonkou09&#64;gmail.com</p>
+            <p class="card-text mb-3"><i class="fa-solid fa-phone" style="color: #ff523b;"></i> +33
+              7-51-25-63-20
+            </p>
+            <div class="mb-4">
+              <a href="https://github.com/fonkoukevin"  target="_blank"><i class="fa-brands fa-github me-2" style="color: #000000; font-size: 20px;"></i></a>
+              <a href="https://www.linkedin.com/in/kevin-fonkou-487936236/" target="_blank"><i class="fa-brands fa-linkedin me-2" style="color: #000000; font-size: 20px;"></i></a>
+              <a href="https://discord.com/channels/1161583047225901116/1161583047699877940" target="_blank"><i class="fa-brands fa-discord me-2" style="color: #000000; font-size: 20px;"></i></a>
+            </div>
+
+
+
+            <a href="../assets/CV Kevin Fonkou .pdf" download="CV Fonkou Kevin" class="btn" style="background-color: #ff523b; color: white;">Download CV</a>
+          </div>
+
+        </div>
+
+        <div class="col-md-7">
+          <div class="card-body border-0 border p-4"> <!-- Ajout de la classe "border" pour la bordure -->
+            <form action="javascript:void(0);" (submit)="send()" method="post">
+              <div class="row">
+                <div class="col-md-6 mb-3 me-0"> <!-- Ajout de la classe mb-3 pour réduire l'espace -->
+                  <div class="form-floating">
+                    <input formControlName="from_name" type="text" class="form-control" name="name" id="floatingInput1"
+                      placeholder="name@example.com">
+                    <label for="name" style="font-size: 14px; opacity: 0.7;">Nom</label>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-3 fax"> <!-- Ajout de la classe mb-3 pour réduire l'espace -->
+                  <div class="form-floating">
+                    <input formControlName="from_email" type="email" class="form-control" id="floatingInput2"
+                      placeholder="name@example.com" required>
+                    <label for="floatingInput2" style="font-size: 14px; opacity: 0.7;">Adresse
+                      email</label>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-floating mb-3">
+                <input formControlName="subject" type="text" class="form-control" id="floatingInput3"
+                  placeholder="name@example.com">
+                <label for="floatingInput3" style="font-size: 14px; opacity: 0.7;">Sujet</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <textarea formControlName="message" class="form-control" placeholder="Leave a comment here"
+                  id="floatingTextarea2" style="height: 100px; font-size: 14px; opacity: 0.8;"></textarea>
+                <label for="floatingTextarea2" style="opacity: 0.7;">Message</label>
+              </div>
+
+
+              <!-- {{form.value | json}} -->
+
+
+
+              <button type="submit" class="btn" style="background-color: #ff523b; color: white;"><i
+                  class="fa-solid fa-paper-plane" style="color: #f5f5f5; font-size: 15px;"></i>  Submit</button>
+                
+                  <p>
+                    {{contactMessage}}
+                  </p>
+                </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+
+
+
+<div>
+  
+  <footer class="footer">
+    <div class="footer_container container grid">
+      <ul class="footer_links">
+        <li>
+          <a href="#" class="footer_link">Accueil</a>
+        </li>
+
+        <li>
+          <a href="#" class="footer_link">Projet</a>
+        </li>
+
+        <li>
+          <a href="#" class="footer_link">A propos</a>
+        </li>
+      </ul>
+
+      <span class="footer_copy">
+
+        &#169; Tous droits réservés
+        <a href="#">FMK</a>
+      </span>
+
+
+    </div>
+
+  </footer>
+</div>
+
+

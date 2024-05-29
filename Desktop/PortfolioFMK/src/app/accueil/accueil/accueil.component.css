@@ -1,0 +1,139 @@
+.icons-container {
+    display: flex;
+    align-items: center; /* Pour aligner les icônes verticalement au centre */
+    position: absolute;
+    bottom: 0;
+    right: 80%;
+    transform: translateX(-50%);
+
+    margin-bottom: -90px;
+}
+
+.fa-solid.fa-circle {
+    margin: 10px 10px; /* Ajustez cette marge selon vos besoins pour réduire l'espace entre le cercle et les icônes */
+
+}
+
+
+.fa-brands,
+.fa-solid {
+    margin: 0; /* Réinitialiser les marges par défaut des icônes */
+}
+.handshake {
+    position: relative;
+}
+
+.handshake-img {
+    /* position: absolute; */
+    /* top: 0; */
+    /* right: -50px; Ajustez la position horizontale de la main */
+    animation: shake 2s infinite; /* Animation de secousse */
+    width: 30px;
+    height: auto;
+}
+.dis{
+    margin-bottom: 20px;
+}
+.redik{
+   margin-bottom: -15px;
+}
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.text{
+    margin-top: 80px;
+    
+}
+.imgarrange{
+    margin-left: -40px;
+}
+
+.btn{
+    border-radius: 20px ;
+}
+
+.ex {
+    background-image: url("../../../assets/couv3.jpg");
+    background-size: 1500px 500px; /* Taille spécifique de l'image de fond en pixels */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image de fond */
+    background-position: center;
+    height: 100%;
+    border-radius: 19px;
+}
+
+
+.dot {
+    background-image: url("../../../assets/grid\(1\).png");
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    height: 25%;
+    display: flex;
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center; /* Centre le contenu verticalement */
+    position: relative; /* Pour que les éléments enfants positionnés soient relativement positionnés par rapport à ce conteneur */
+    margin-top: -20px;
+    padding-bottom: 60px;
+}
+
+.redir{
+
+    padding-left: 150px;
+}
+
+.ded{
+    margin-bottom: 150px;
+    margin-top: 130px;
+}
+
+
+
+/* arrow effect */
+
+.box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 220px;
+}
+.box span{
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    /* transform: rotate(45deg); */
+    margin: -10px;
+    animation: animate 2s infinite
+}
+
+.box span:nth-child(2){
+    animation-delay: -0.2s;
+
+}
+
+.box span:nth-child(3){
+    animation-delay: -0.4s;
+}
+@keyframes animate{
+    0%{
+        opacity: 0;
+    transform: rotate(45deg) translate(-20px, -20px);
+
+    }
+    50%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
+    transform: rotate(45deg) translate(20px, 20px);
+
+    }
+}
+
