@@ -3,18 +3,26 @@ package countries.countries.service;
 
 import countries.countries.model.Country;
 import countries.countries.repository.CountryRepository;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.Random;
+import java.util.*;
 
 @Service
 public class CountryService {
 
     @Autowired
     private CountryRepository countryRepository;
+
+    private List<Country> remainingCountries;
+
+    @PostConstruct
+    public void init() {
+        List<Country> countries = countryRepository.findAll();
+        remainingCountries = new ArrayList<>(countries);
+        Collections.shuffle(remainingCountries);
+    }
 
     public List<Country> getAllCountries() {
         return countryRepository.findAll();
@@ -25,11 +33,15 @@ public class CountryService {
     }
 
     public Country getRandomCountry() {
-        List<Country> countries = countryRepository.findAll();
-        if (countries.isEmpty()) {
-            return null;
+        if (remainingCountries.isEmpty()) {
+            resetRemainingCountries();
         }
-        Random random = new Random();
-        return countries.get(random.nextInt(countries.size()));
+        return remainingCountries.remove(remainingCountries.size() - 1);
+    }
+
+    private void resetRemainingCountries() {
+        List<Country> countries = countryRepository.findAll();
+        remainingCountries = new ArrayList<>(countries);
+        Collections.shuffle(remainingCountries);
     }
 }

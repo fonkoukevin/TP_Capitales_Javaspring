@@ -18,11 +18,7 @@ public class CountryController {
 
     @GetMapping("/start")
     public Country getRandomCountry() {
-        Country country = countryService.getRandomCountry();
-        if (country == null) {
-            throw new RuntimeException("Aucun pays trouvé dans la base de données.");
-        }
-        return country;
+        return countryService.getRandomCountry();
     }
 
     @PostMapping("/{id}")
@@ -33,7 +29,7 @@ public class CountryController {
         if (countryOptional.isPresent()) {
             Country country = countryOptional.get();
             if (country.getCapital().equalsIgnoreCase(guessedCapital)) {
-                response.put("résultat", "C'est exact ! Vous avez deviné la bonne capitale.");
+                response.put("result", "Correct! You guessed the right capital.");
             } else {
                 response.put("result", "Wrong! The correct capital is " + country.getCapital());
             }
